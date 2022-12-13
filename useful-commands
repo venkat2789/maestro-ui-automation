@@ -1,0 +1,17 @@
+#app install
+adb install WikipediaSample.apk
+
+#run flow
+maestro test flow.yaml
+
+#query element
+maestro query text="In the news"
+maestro query text="Search.*"
+
+#export junit report
+maestro test flow.yaml --format junit
+
+#create recording
+maestro record wiki-scroll.yaml
+
+

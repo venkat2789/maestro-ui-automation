@@ -1,0 +1,9 @@
+#wiki-nestedFlows.yaml
+
+appId: org.wikipedia.alpha
+---
+- launchApp:
+    clearState: true
+- assertVisible: "In the news"
+- runFlow: swipeFlow.yaml # <-- Run commands from "swipeFlow.yaml"
+- takeScreenshot: After3Swipes

@@ -1,0 +1,11 @@
+#wiki-conditionalFlows.yaml
+
+appId: org.wikipedia.alpha
+---
+- launchApp:
+    clearState: true
+- assertVisible: "In the news"
+- runFlow:
+    when:
+      notVisible: "Chinese Community Party" #last card in carousel
+    file: swipeFlow.yaml

@@ -1,0 +1,15 @@
+# wiki-generalFlow.yaml
+
+appId: org.wikipedia.alpha
+---
+- launchApp
+- assertVisible: "In the news"
+- tapOn:
+    text: "Search Wikipedia"
+    index: 0
+- inputText: "Tesla"
+- tapOn: "Tesla, Inc."
+- assertVisible: "An error occurred"
+- tapOn: "GO BACK"
+- assertVisible: "In the news"
+

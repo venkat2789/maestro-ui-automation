@@ -1,0 +1,11 @@
+# swipeFlow.yaml
+
+appId: org.wikipedia.alpha
+--- # <-- To be used within other flows, not separately."
+- repeat:
+      times: 3
+      commands:
+        - swipe:
+            start: 300, 650
+            end: 100, 650
+            duration: 800

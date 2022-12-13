@@ -1,0 +1,13 @@
+# wiki-swipe.yaml
+
+appId: org.wikipedia.alpha
+---
+- launchApp:
+    clearState: true
+- assertVisible: "In the news"
+- swipe:
+      #in the news header "bounds" : "[151,540][352,593]"
+      start: 300, 650
+      end: 100, 650
+      duration: 800
+- takeScreenshot: AfterSwipe

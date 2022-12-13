@@ -1,0 +1,15 @@
+# wiki-scroll.yaml
+
+appId: org.wikipedia.alpha
+---
+- launchApp:
+    clearState: true
+- assertVisible: "In the news"
+- repeat:
+    times: 2
+    commands:
+      - scroll
+- tapOn: "Randomizer"
+- assertVisible: "An error occurred"
+- back
+- assertVisible: "Randomizer"
