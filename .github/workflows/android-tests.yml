@@ -7,29 +7,29 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  install-java:
     runs-on: macos-latest
 
     steps:
-    - name: checkout
+    - name: Checkout
       uses: actions/checkout@v3
     
-    - name: set up JDK 11
+    - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
         java-version: '11'
         distribution: 'temurin'
-        
-    - name: print java version
-      run: java --version
 
-  test:
+  setup-avd:
     runs-on: macos-latest
     
     steps:
-      - name: run tests
+      - name: Setup AVD
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: pwd
+          script: /Users/runner/Library/Android/sdk/emulator/emulator -list-avds
+          
+      - name: Install app
+        run: /Users/runner/Library/Android/sdk/platform-tools/adb install /Users/runner/work/maestro-ui-automation/maestro-ui-automation/WikipediaSample.apk
 
