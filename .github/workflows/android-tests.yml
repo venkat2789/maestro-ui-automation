@@ -19,16 +19,19 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-      
-    - name: Install Maestro
-      run: | 
-        curl -Ls "https://get.maestro.mobile.dev" | bash
-        export PATH="$PATH":"$HOME/.maestro/bin"
-        maestro --version
         
     - name: Setup AVD and Run Test
       uses: reactivecircus/android-emulator-runner@v2
       with:
         api-level: 29
         script: bash scipts-for-ga.sh
+        
+    - name: Generate Test Report
+      uses: dorny/test-reporter@v1.6.0
+      with:
+        name: Test Results
+        path: "**/report.xml"
+        reporter: java-junit
+        fail-on-error: false
+
 
