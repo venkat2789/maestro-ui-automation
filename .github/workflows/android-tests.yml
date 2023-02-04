@@ -19,17 +19,26 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-
-  setup-avd:
+        
+  setup-maestro:
     runs-on: macos-latest
-    
+      
     steps:
-      - name: Setup AVD
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: /Users/runner/Library/Android/sdk/emulator/emulator -list-avds
+      - name: Install maestro
+        run: | 
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          maestro --version
+
+#   setup-avd:
+#     runs-on: macos-latest
+    
+#     steps:
+#       - name: Setup AVD
+#         uses: reactivecircus/android-emulator-runner@v2
+#         with:
+#           api-level: 29
+#           script: /Users/runner/Library/Android/sdk/emulator/emulator -list-avds
           
-      - name: Install app
-        run: /Users/runner/Library/Android/sdk/platform-tools/adb install /Users/runner/work/maestro-ui-automation/maestro-ui-automation/WikipediaSample.apk
+#       - name: Install app
+#         run: /Users/runner/Library/Android/sdk/platform-tools/adb install /Users/runner/work/maestro-ui-automation/maestro-ui-automation/WikipediaSample.apk
 
