@@ -39,12 +39,5 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: |
-            pwd
-            ls
-            /Users/runner/Library/Android/sdk/emulator/emulator -list-avds
-            /Users/runner/Library/Android/sdk/platform-tools/adb install /Users/runner/work/maestro-ui-automation/maestro-ui-automation/WikipediaSample.apk
-          
-#       - name: Install app
-#         run: /Users/runner/Library/Android/sdk/platform-tools/adb install /Users/runner/work/maestro-ui-automation/maestro-ui-automation/WikipediaSample.apk
+          script: bash scipts-for-ga.sh
 
