@@ -27,6 +27,7 @@ jobs:
       - name: Install maestro
         run: | 
           curl -Ls "https://get.maestro.mobile.dev" | bash
+          export PATH="$PATH":"$HOME/.maestro/bin"
           maestro --version
 
 #   setup-avd:
