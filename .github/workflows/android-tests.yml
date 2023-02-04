@@ -29,8 +29,8 @@ jobs:
     - name: Generate Test Report
       uses: dorny/test-reporter@v1.6.0
       with:
-        name: Test Results
-        path: "**/report.xml"
+        name: results
+        path: "**/folderWithTests/report.xml" 
         reporter: java-junit
         fail-on-error: false
 
