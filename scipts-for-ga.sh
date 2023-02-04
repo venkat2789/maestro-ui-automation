@@ -1,14 +1,17 @@
-echo printing work directory
+echo >> printing work directory
 pwd
 
-echo listing files
+echo >> listing project files
 ls
 
-echo listing avds
+echo >> listing avds
 /Users/runner/Library/Android/sdk/emulator/emulator -list-avds
 
-echo installing app
+echo >> installing app
 /Users/runner/Library/Android/sdk/platform-tools/adb install /Users/runner/work/maestro-ui-automation/maestro-ui-automation/WikipediaSample.apk
 
-echo get package names
+echo >> getting package names
 /Users/runner/Library/Android/sdk/platform-tools/adb shell pm list packages -3 -f
+
+echo >> running tests
+maestro test ./folderWithTests/wiki-generalFlow.yaml
