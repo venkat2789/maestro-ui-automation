@@ -7,37 +7,28 @@ on:
     branches: [ "main" ]
 
 jobs:
-  install-java:
+  test:
     runs-on: macos-latest
 
     steps:
-    
-    - name: Set up JDK 11
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Setup JDK 11
       uses: actions/setup-java@v3
       with:
         java-version: '11'
         distribution: 'temurin'
-        
-#   install-maestro:
-#     runs-on: macos-latest
       
-#     steps:
-#       - name: Install maestro
-#         run: | 
-#           curl -Ls "https://get.maestro.mobile.dev" | bash
-#           export PATH="$PATH":"$HOME/.maestro/bin"
-#           maestro --version
-
-  setup-avd:
-    runs-on: macos-latest
-    
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    - name: Install Maestro
+      run: | 
+        curl -Ls "https://get.maestro.mobile.dev" | bash
+        export PATH="$PATH":"$HOME/.maestro/bin"
+        maestro --version
         
-      - name: Setup AVD
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: bash scipts-for-ga.sh
+    - name: Setup AVD and Run Test
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 29
+        script: bash scipts-for-ga.sh
 
