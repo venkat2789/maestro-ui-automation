@@ -31,7 +31,7 @@ jobs:
       uses: dorny/test-reporter@v1.6.0
       with:
         name: results
-        path: "**/folderWithTests/report.xml" 
+        path: "**/report.xml" 
         reporter: java-junit
         fail-on-error: false
 
