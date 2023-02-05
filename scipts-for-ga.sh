@@ -1,9 +1,5 @@
 #!/bin/bash
 
-SDK_PATH = "/Users/runner/Library/Android/sdk"
-APK_FILE_PATH = "/Users/runner/work/maestro-ui-automation/maestro-ui-automation/WikipediaSample.apk"
-TEST_FOLDER = "folderWithTests/"
-
 echo ">> printing work directory"
 pwd
 
@@ -11,13 +7,13 @@ echo ">> listing project files"
 ls
 
 echo ">> listing avds"
-"$SDK_PATH"/emulator/emulator -list-avds
+/Users/runner/Library/Android/sdk/emulator/emulator -list-avds
 
 echo ">> installing app"
-"$SDK_PATH"/platform-tools/adb install $APK_FILE_PATH
+/Users/runner/Library/Android/sdk/platform-tools/adb install /Users/runner/work/maestro-ui-automation/maestro-ui-automation/WikipediaSample.apk
 
 echo ">> getting package names"
-"$SDK_PATH"/platform-tools/adb shell pm list packages -3 -f
+/Users/runner/Library/Android/sdk/platform-tools/adb shell pm list packages -3 -f
 
 echo ">> installing maestro"
 curl -Ls "https://get.maestro.mobile.dev" | bash
@@ -25,4 +21,4 @@ export PATH="$PATH":"$HOME/.maestro/bin"
 maestro --version
 
 echo ">> running tests"
-maestro test ./"$TEST_FOLDER" --format junit
+maestro test ./folderWithTests/ --format junit
