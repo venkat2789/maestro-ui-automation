@@ -25,6 +25,7 @@ jobs:
       with:
         api-level: 29
         script: bash scipts-for-ga.sh
+      continue-on-error: true
         
     - name: Generate Test Report
       uses: dorny/test-reporter@v1.6.0
