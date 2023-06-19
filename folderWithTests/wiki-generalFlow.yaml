@@ -3,6 +3,11 @@
 appId: org.wikipedia.alpha
 ---
 - launchApp
+- extendedWaitUntil:
+      visible:
+        text: "Test"
+#        optional: true
+      timeout: 10000
 - assertVisible: "In the news"
 - tapOn:
     text: "Search Wikipedia"
